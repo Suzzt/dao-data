@@ -1,0 +1,10 @@
+server:
+  port: 7771
+  servlet:
+    context-path: /dot-record
+spring:
+  kafka:
+    bootstrap-servers: 192.168.1.8:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
