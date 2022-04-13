@@ -13,7 +13,6 @@ import java.util.Properties;
  * @date: 2022/4/10 16:29
  * @description:
  */
-
 public class FlinkLogRecordHandler {
     private static final String KAFKA_CONNECT_INFO = "192.168.1.8:9092";
     public static void main(String[] args) throws Exception {
