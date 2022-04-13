@@ -10,6 +10,10 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
+        <flink-version>1.13.0</flink-version>
+        <java-version>1.8</java-version>
+        <scala.binary.version>2.12</scala.binary.version>
+        <slf4j.version>1.7.30</slf4j.version>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <spring-boot.version>2.4.2</spring-boot.version>
@@ -25,6 +29,7 @@
         <module>dot-record</module>
         <module>common</module>
         <module>analysis</module>
+        <module>calculate</module>
     </modules>
     <dependencies>
 
