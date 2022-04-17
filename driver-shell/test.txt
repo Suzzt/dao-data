@@ -1,0 +1,1 @@
+http://127.0.0.1:7771/dot-record/kafka/dot-log-txt?dotLog=index$77777777$1000100021$ios$12.0.8
