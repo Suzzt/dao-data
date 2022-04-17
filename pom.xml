@@ -17,6 +17,10 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <spring-boot.version>2.4.2</spring-boot.version>
+        <lombok-version>1.18.20</lombok-version>
+        <hutool-version>5.3.10</hutool-version>
+        <guava-version>18.0</guava-version>
+        <gson-version>2.8.5</gson-version>
     </properties>
 
     <parent>
@@ -32,7 +36,26 @@
         <module>calculate</module>
     </modules>
     <dependencies>
-
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${gson-version}</version>
+        </dependency>
     </dependencies>
 
 </project>

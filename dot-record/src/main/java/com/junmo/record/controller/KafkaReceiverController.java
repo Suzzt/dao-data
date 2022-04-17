@@ -1,8 +1,10 @@
 package com.junmo.record.controller;
 
+import com.junmo.common.record.SimpleDotLog;
 import com.junmo.common.result.ApiResult;
 import com.junmo.record.service.DataReceiverService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,17 +15,33 @@ import org.springframework.web.bind.annotation.RestController;
  * @description: 接收打点入kafka
  */
 @RestController
+@RequestMapping(value = "kafka")
 public class KafkaReceiverController {
     @Autowired
     private DataReceiverService dataReceiverService;
 
     /**
-     * kafka 数据接收处理
-     * @param data
+     * kafka 数据接收对象处理
+     *
+     * @param dotLog
      * @return
      */
-    @RequestMapping("kafka-dot-data")
-    public ApiResult data(@RequestParam String data){
-        return dataReceiverService.handle(data);
+    @RequestMapping("dot-log")
+    public ApiResult data(@RequestParam SimpleDotLog dotLog) {
+        return dataReceiverService.handle(dotLog);
+    }
+
+    /**
+     * kafka 数据接收文本处理
+     *
+     * @param dotLog    按字符顺序分割数据,请严格按这个来.
+     *                  顺序：事件/affiliateId/userId/platform/version
+     *                  示例: dot-log='index$77777777$1000100021$ios$12.0.8'
+     * @param separator 分割符 默认按'$'
+     * @return
+     */
+    @RequestMapping("dot-log-txt")
+    public ApiResult data(@RequestParam String dotLog, String separator) {
+        return dataReceiverService.handle(dotLog, StringUtils.hasLength(separator) ? separator : "\\$");
     }
 }

@@ -27,12 +27,6 @@
             <groupId>org.junmo</groupId>
             <artifactId>common</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>hutool-all</artifactId>
-                    <groupId>cn.hutool</groupId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
         <dependency>

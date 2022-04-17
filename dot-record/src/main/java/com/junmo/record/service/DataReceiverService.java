@@ -1,6 +1,7 @@
 package com.junmo.record.service;
 
 
+import com.junmo.common.record.SimpleDotLog;
 import com.junmo.common.result.ApiResult;
 
 /**
@@ -12,8 +13,17 @@ public interface DataReceiverService {
     /**
      * 处理数据走向
      *
-     * @param data
+     * @param dotLog
      * @return
      */
-    ApiResult handle(String data);
+    ApiResult handle(SimpleDotLog dotLog);
+
+    /**
+     * 处理数据走向
+     *
+     * @param dotLog
+     * @param separator
+     * @return
+     */
+    ApiResult handle(String dotLog, String separator);
 }

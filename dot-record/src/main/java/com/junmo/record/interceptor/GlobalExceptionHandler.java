@@ -3,6 +3,7 @@ package com.junmo.record.interceptor;
 import com.google.common.collect.Lists;
 import com.junmo.common.result.ApiResult;
 import com.junmo.common.result.CodeEnum;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -37,14 +38,14 @@ public class GlobalExceptionHandler {
         for (ObjectError objectError : bindingResult.getAllErrors()) {
             result.add(objectError.getDefaultMessage());
         }
-        return ApiResult.buildFailResult(CodeEnum.PARAMETER_ERROR.getCode(), result.toString());
+        return ApiResult.buildFail(CodeEnum.PARAMETER_ERROR.getCode(), result.toString());
     }
 
     @ExceptionHandler(BusinessException.class)
     @ResponseBody
     public ApiResult<?> handleBusinessException(HttpServletRequest request, BusinessException ex) {
         log.error("handleBusinessException uri:{},ex: ", request.getRequestURI(), ex);
-        return ApiResult.buildFailResult(ex.getCode(), ex.getMessage());
+        return ApiResult.buildFail(ex.getCode(), ex.getMessage());
     }
 
     /**
@@ -59,7 +60,7 @@ public class GlobalExceptionHandler {
     public Result<?> handleSqlException(HttpServletRequest request, SqlException ex) {
         ex.printStackTrace();
         log.error("handleSqlException uri:{},ex: ", request.getRequestURI(), ex);
-        return Result.buildFailResult(ex.getCode(), ex.getMessage());
+        return ApiResult.buildFail(ex.getCode(), ex.getMessage());
     }
 
     /**
@@ -74,7 +75,7 @@ public class GlobalExceptionHandler {
     public Result<?> handleException(HttpServletRequest request, Throwable ex) {
         ex.printStackTrace();
         log.error("handleException uri:{},ex: ", request.getRequestURI(), ex);
-        return Result.buildFailResult(CodeEnum.SYSTEM_ERROR.getCode(), "抱歉，系统有点小问题，请稍后再试");
+        return ApiResult.buildFail(CodeEnum.SYSTEM_ERROR.getCode(), "抱歉，系统有点小问题，请稍后再试");
     }
 
 

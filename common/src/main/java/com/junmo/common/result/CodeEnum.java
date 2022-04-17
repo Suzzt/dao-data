@@ -59,6 +59,12 @@ public enum CodeEnum {
      */
     NOT_FIND_OPERATOR_HANDLE_ERROR("A1101","没有合适的过滤Operator处理器"),
 
+    // 埋点数据 B3+
+    /**
+     * 埋点日志分割字段太短
+     */
+    PARAM_SEPARATOR_LENGTH_SHORT("A3001", "埋点日志分割字段太短"),
+
     // B级别 系统错误,NPE
     /**
      * 系统内部报错,B一级宏观错误
