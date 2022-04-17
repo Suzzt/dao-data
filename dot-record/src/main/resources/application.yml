@@ -1,3 +1,4 @@
+log.home: /data/dao-data/dot-record
 server:
   port: 7771
   servlet:
@@ -7,4 +8,4 @@ spring:
     bootstrap-servers: 192.168.1.9:9092
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer

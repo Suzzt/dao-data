@@ -3,6 +3,8 @@ package com.junmo.record.interceptor;
 import com.google.common.collect.Lists;
 import com.junmo.common.result.ApiResult;
 import com.junmo.common.result.CodeEnum;
+import com.junmo.record.interceptor.exception.BusinessException;
+import com.junmo.record.interceptor.exception.SqlException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
@@ -57,7 +59,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(SqlException.class)
     @ResponseBody
-    public Result<?> handleSqlException(HttpServletRequest request, SqlException ex) {
+    public ApiResult<?> handleSqlException(HttpServletRequest request, SqlException ex) {
         ex.printStackTrace();
         log.error("handleSqlException uri:{},ex: ", request.getRequestURI(), ex);
         return ApiResult.buildFail(ex.getCode(), ex.getMessage());
@@ -72,7 +74,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(Throwable.class)
     @ResponseBody
-    public Result<?> handleException(HttpServletRequest request, Throwable ex) {
+    public ApiResult<?> handleException(HttpServletRequest request, Throwable ex) {
         ex.printStackTrace();
         log.error("handleException uri:{},ex: ", request.getRequestURI(), ex);
         return ApiResult.buildFail(CodeEnum.SYSTEM_ERROR.getCode(), "抱歉，系统有点小问题，请稍后再试");
