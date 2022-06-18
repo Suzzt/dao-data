@@ -14,7 +14,7 @@ import java.util.Properties;
  * @description:
  */
 public class FlinkLogRecordHandler {
-    private static final String KAFKA_CONNECT_INFO = "192.168.1.9:9092";
+    private static final String KAFKA_CONNECT_INFO = "192.168.1.12:9092";
     public static void main(String[] args) throws Exception {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         env.setParallelism(1);

@@ -24,7 +24,7 @@ public class DataReceiverServiceImpl implements DataReceiverService {
 
     @Override
     public ApiResult handle(SimpleDotLog dotLog) {
-        kafkaTemplate.send("first-test", dotLog);
+        kafkaTemplate.send("first-test", new Gson().toJson(dotLog));
         System.out.println("send data = " + new Gson().toJson(dotLog));
         return ApiResult.buildSuccess();
     }

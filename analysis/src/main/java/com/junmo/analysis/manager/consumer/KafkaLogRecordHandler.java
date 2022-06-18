@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 public class KafkaLogRecordHandler {
     @KafkaListener(topics = {"first-test"})
     public void listen(ConsumerRecord record) {
-        System.out.println(record.topic() + ":" + record.value());
+        System.out.println(record.offset());
+        System.err.println(record.topic() + ":" + record.value());
     }
 }
