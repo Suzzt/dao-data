@@ -36,6 +36,8 @@
         <module>common</module>
         <module>analysis</module>
         <module>calculate</module>
+        <module>dao-df</module>
+        <module>dao-tb</module>
     </modules>
     <dependencies>
         <dependency>
