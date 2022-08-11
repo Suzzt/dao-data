@@ -9,8 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @description:
  */
 @SpringBootApplication
-public class AnalysisApplication {
+public class DataServerApplication {
     public static void main(String[] args) {
-        SpringApplication.run(AnalysisApplication.class, args);
+        SpringApplication.run(DataServerApplication.class, args);
     }
 }

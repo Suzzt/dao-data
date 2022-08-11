@@ -8,19 +8,19 @@ SpringBoot(2.4.5)、kafka(2.8)、zookeeper、redis、mysql、Hadoop、Spark、Hi
 备注：上述所用版本经过本人实践适配
 
 # 代码架构分层介绍
-common --- 公共层
+dao-common --- 公共层
 
-dot-record --- 打点处理层：埋点数据接收
+dao-dot-record --- 打点处理层：埋点数据接收
 
 analysis --- 分析层：调度分析
 
-calculate --- 计算层：核心计算
+dao-core-calculate --- 计算层：核心计算
 
-dao-tb --- 任务调度：协调任务(task-butler)
+dao-task-butler --- 任务管家：协调任务
 
-dao-driver-shell --- 执行脚本
+dao-shell --- 执行脚本
 
-dao-tb --- 数据工厂
+dao-data-factory --- 数据工厂
 
 # 架构分层
 ![3.png](img_5.png)
