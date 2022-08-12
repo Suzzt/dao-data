@@ -1,6 +1,6 @@
 spring:
   application:
-    name: dao-df
+    name: dao-data-factory
 log.home: /data/dao-data-logs/${spring.application.name}
 server:
   port: 7772
