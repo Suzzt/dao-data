@@ -14,16 +14,9 @@ public interface DataReceiverService {
      * 处理数据走向
      *
      * @param dotLog
+     * @param warehouseType 数仓类型
      * @return
      */
-    ApiResult handle(SimpleDotLog dotLog);
+    ApiResult handle(SimpleDotLog dotLog, String warehouseType);
 
-    /**
-     * 处理数据走向
-     *
-     * @param dotLog
-     * @param separator
-     * @return
-     */
-    ApiResult handle(String dotLog, String separator);
 }

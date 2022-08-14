@@ -1,11 +1,15 @@
 package com.junmo.df.controller;
 
 import com.junmo.df.vo.requset.ImportVO;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.nio.charset.StandardCharsets;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * @author: sucf
@@ -25,12 +29,5 @@ public class DataSourceController {
         log.error("error");
         return null;
     }
-
-    public static void main(String[] args) {
-        String json = "我";
-        System.out.println(json.getBytes(StandardCharsets.UTF_8).length);
-        System.out.println(json.length());
-    }
-
 
 }

@@ -3,8 +3,10 @@ package com.junmo.record.controller;
 import com.junmo.common.record.SimpleDotLog;
 import com.junmo.common.result.ApiResult;
 import com.junmo.record.service.DataReceiverService;
+import com.junmo.record.util.LogRecordUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,7 +29,7 @@ public class KafkaReceiverController {
      * @return
      */
     @RequestMapping("dot-log")
-    public ApiResult data(@RequestParam SimpleDotLog dotLog) {
+    public ApiResult data(@RequestBody SimpleDotLog dotLog) {
         return dataReceiverService.handle(dotLog);
     }
 
@@ -42,6 +44,6 @@ public class KafkaReceiverController {
      */
     @RequestMapping("dot-log-txt")
     public ApiResult data(@RequestParam String dotLog, String separator) {
-        return dataReceiverService.handle(dotLog, StringUtils.hasLength(separator) ? separator : "\\$");
+        return dataReceiverService.handle(LogRecordUtils.conversion(dotLog, StringUtils.hasLength(separator) ? separator : "\\$"));
     }
 }

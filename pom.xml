@@ -32,7 +32,7 @@
     </parent>
 
     <modules>
-        <module>dao-dot-record</module>
+        <module>dao-data-web</module>
         <module>common</module>
         <module>dao-data-server</module>
         <module>dao-calculate-core</module>

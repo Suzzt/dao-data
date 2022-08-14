@@ -63,7 +63,7 @@ public enum CodeEnum {
     /**
      * 埋点日志分割字段太短
      */
-    PARAM_SEPARATOR_LENGTH_SHORT("A3001", "埋点日志分割字段太短"),
+    PARAM_SEPARATOR_LENGTH_SHORT("A3001", "埋点日志分割字段太短,不能少于5个"),
 
     // B级别 系统错误,NPE
     /**
@@ -136,7 +136,6 @@ public enum CodeEnum {
 
 
     ;
-
     private String code;
 
     private String text;
@@ -160,15 +159,5 @@ public enum CodeEnum {
     CodeEnum(String code, String text) {
         this.code = code;
         this.text = text;
-    }
-
-    public static String getText(String code){
-        CodeEnum[] enums = CodeEnum.values();
-        for (CodeEnum codeEnum : enums) {
-            if (codeEnum.name().equals(code)) {
-                return codeEnum.text;
-            }
-        }
-        return "没有找到";
     }
 }

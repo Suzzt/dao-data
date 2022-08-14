@@ -10,7 +10,7 @@ SpringBoot(2.4.5)、kafka(2.8)、zookeeper、redis、mysql、Hadoop、Spark、Hi
 # 代码架构分层介绍
 dao-common --- 公共层
 
-dao-dot-record --- 打点处理层：埋点数据接收
+dao-data-web --- web交互
 
 analysis --- 分析层：调度分析
 

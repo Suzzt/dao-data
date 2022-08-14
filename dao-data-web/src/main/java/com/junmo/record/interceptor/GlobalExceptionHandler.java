@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import com.junmo.common.result.ApiResult;
 import com.junmo.common.result.CodeEnum;
 import com.junmo.record.interceptor.exception.BusinessException;
+import com.junmo.record.interceptor.exception.ParamException;
 import com.junmo.record.interceptor.exception.SqlException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindingResult;
@@ -47,6 +48,21 @@ public class GlobalExceptionHandler {
     @ResponseBody
     public ApiResult<?> handleBusinessException(HttpServletRequest request, BusinessException ex) {
         log.error("handleBusinessException uri:{},ex: ", request.getRequestURI(), ex);
+        return ApiResult.buildFail(ex.getCode(), ex.getMessage());
+    }
+
+    /**
+     * 前端参数相关异常处理
+     *
+     * @param request
+     * @param ex
+     * @return
+     */
+    @ExceptionHandler(ParamException.class)
+    @ResponseBody
+    public ApiResult<?> handleParamException(HttpServletRequest request, ParamException ex) {
+        ex.printStackTrace();
+        log.error("handleParamException uri:{},ex: ", request.getRequestURI(), ex);
         return ApiResult.buildFail(ex.getCode(), ex.getMessage());
     }
 
