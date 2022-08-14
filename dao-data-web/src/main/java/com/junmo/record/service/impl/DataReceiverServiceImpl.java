@@ -1,10 +1,9 @@
 package com.junmo.record.service.impl;
 
-import cn.hutool.core.util.StrUtil;
 import com.google.gson.Gson;
+import com.junmo.common.enums.WareHouseEnum;
 import com.junmo.common.record.SimpleDotLog;
 import com.junmo.common.result.ApiResult;
-import com.junmo.common.result.CodeEnum;
 import com.junmo.record.service.DataReceiverService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +23,12 @@ public class DataReceiverServiceImpl implements DataReceiverService {
     private KafkaTemplate kafkaTemplate;
 
     @Override
-    public ApiResult handle(SimpleDotLog dotLog, String warehouseType) {
-        log.info("dotLog={}",new Gson().toJson(dotLog));
+    public ApiResult handle(SimpleDotLog dotLog, WareHouseEnum warehouseType) {
+        log.info("dotLog={}", new Gson().toJson(dotLog));
+        if (warehouseType.equals(WareHouseEnum.MYSQL)) {
+
+        }
+
         kafkaTemplate.send("first-test", new Gson().toJson(dotLog));
 
         return ApiResult.buildSuccess();

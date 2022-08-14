@@ -1,6 +1,7 @@
 package com.junmo.record.service;
 
 
+import com.junmo.common.enums.WareHouseEnum;
 import com.junmo.common.record.SimpleDotLog;
 import com.junmo.common.result.ApiResult;
 
@@ -17,6 +18,6 @@ public interface DataReceiverService {
      * @param warehouseType 数仓类型
      * @return
      */
-    ApiResult handle(SimpleDotLog dotLog, String warehouseType);
+    ApiResult handle(SimpleDotLog dotLog, WareHouseEnum warehouseType);
 
 }

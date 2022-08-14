@@ -45,4 +45,11 @@ public enum WareHouseEnum {
         this.description = description;
     }
 
+    @Override
+    public String toString() {
+        return "WareHouseEnum{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

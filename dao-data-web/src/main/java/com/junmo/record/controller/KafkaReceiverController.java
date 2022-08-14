@@ -1,5 +1,6 @@
 package com.junmo.record.controller;
 
+import com.junmo.common.enums.WareHouseEnum;
 import com.junmo.common.record.SimpleDotLog;
 import com.junmo.common.result.ApiResult;
 import com.junmo.record.service.DataReceiverService;
@@ -30,7 +31,7 @@ public class KafkaReceiverController {
      */
     @RequestMapping("dot-log")
     public ApiResult data(@RequestBody SimpleDotLog dotLog) {
-        return dataReceiverService.handle(dotLog);
+        return dataReceiverService.handle(dotLog, WareHouseEnum.MYSQL);
     }
 
     /**
@@ -44,6 +45,6 @@ public class KafkaReceiverController {
      */
     @RequestMapping("dot-log-txt")
     public ApiResult data(@RequestParam String dotLog, String separator) {
-        return dataReceiverService.handle(LogRecordUtils.conversion(dotLog, StringUtils.hasLength(separator) ? separator : "\\$"));
+        return dataReceiverService.handle(LogRecordUtils.conversion(dotLog, StringUtils.hasLength(separator) ? separator : "\\$"), WareHouseEnum.MYSQL);
     }
 }
