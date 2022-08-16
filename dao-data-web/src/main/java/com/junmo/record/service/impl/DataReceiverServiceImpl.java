@@ -26,7 +26,7 @@ public class DataReceiverServiceImpl implements DataReceiverService {
     public ApiResult handle(SimpleDotLog dotLog, WareHouseEnum warehouseType) {
         log.info("dotLog={}", new Gson().toJson(dotLog));
         if (warehouseType.equals(WareHouseEnum.MYSQL)) {
-
+            //direct db
         }
 
         kafkaTemplate.send("first-test", new Gson().toJson(dotLog));
