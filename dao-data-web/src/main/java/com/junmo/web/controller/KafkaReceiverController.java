@@ -1,10 +1,10 @@
-package com.junmo.record.controller;
+package com.junmo.web.controller;
 
 import com.junmo.common.enums.WareHouseEnum;
 import com.junmo.common.record.SimpleDotLog;
 import com.junmo.common.result.ApiResult;
-import com.junmo.record.service.DataReceiverService;
-import com.junmo.record.util.LogRecordUtils;
+import com.junmo.web.service.DataReceiverService;
+import com.junmo.web.util.LogRecordUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestBody;

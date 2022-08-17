@@ -1,4 +1,4 @@
-package com.junmo.record.service;
+package com.junmo.web.service;
 
 
 import com.junmo.common.enums.WareHouseEnum;

@@ -1,4 +1,4 @@
-package com.junmo.record;
+package com.junmo.web;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,8 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @description:
  */
 @SpringBootApplication
-public class RecordApplication {
+public class WebApplication {
     public static void main(String[] args) {
-        SpringApplication.run(RecordApplication.class, args);
+        SpringApplication.run(WebApplication.class, args);
     }
 }

@@ -1,4 +1,4 @@
-package com.junmo.record.interceptor.exception;
+package com.junmo.web.interceptor.exception;
 
 /**
  * @author: Sucf

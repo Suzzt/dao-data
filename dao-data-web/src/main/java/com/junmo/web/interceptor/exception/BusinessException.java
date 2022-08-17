@@ -1,13 +1,14 @@
-package com.junmo.record.interceptor.exception;
+package com.junmo.web.interceptor.exception;
+
 
 import com.junmo.common.result.CodeEnum;
 
 /**
  * @author: sucf
- * @date: 2022/8/14 23:38
- * @description: 参数提交错误
+ * @create: 2022-04-17 18:09:07
+ * @description: 业务异常
  */
-public class ParamException extends RuntimeException{
+public class BusinessException extends RuntimeException{
     private String code;
     private String message;
 
@@ -28,14 +29,15 @@ public class ParamException extends RuntimeException{
         this.message = message;
     }
 
-    public ParamException(CodeEnum codeEnum) {
-        super(codeEnum.getCode());
-        this.code = codeEnum.getCode();
-        this.message = codeEnum.getText();
-    }
-    public ParamException(String code, String message) {
+    public BusinessException(String code, String message) {
         super(code);
         this.code = code;
         this.message = message;
+    }
+
+    public BusinessException(CodeEnum codeEnum) {
+        super(codeEnum.getCode());
+        this.code = codeEnum.getCode();
+        this.message = codeEnum.getText();
     }
 }

@@ -1,10 +1,10 @@
-package com.junmo.record.service.impl;
+package com.junmo.web.service.impl;
 
 import com.google.gson.Gson;
 import com.junmo.common.enums.WareHouseEnum;
 import com.junmo.common.record.SimpleDotLog;
 import com.junmo.common.result.ApiResult;
-import com.junmo.record.service.DataReceiverService;
+import com.junmo.web.service.DataReceiverService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;

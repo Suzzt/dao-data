@@ -1,9 +1,9 @@
-package com.junmo.record.util;
+package com.junmo.web.util;
 
 import cn.hutool.core.util.StrUtil;
 import com.junmo.common.record.SimpleDotLog;
 import com.junmo.common.result.CodeEnum;
-import com.junmo.record.interceptor.exception.ParamException;
+import com.junmo.web.interceptor.exception.ParamException;
 
 /**
  * @author: sucf

@@ -1,11 +1,11 @@
-package com.junmo.record.interceptor;
+package com.junmo.web.interceptor;
 
 import com.google.common.collect.Lists;
 import com.junmo.common.result.ApiResult;
 import com.junmo.common.result.CodeEnum;
-import com.junmo.record.interceptor.exception.BusinessException;
-import com.junmo.record.interceptor.exception.ParamException;
-import com.junmo.record.interceptor.exception.SqlException;
+import com.junmo.web.interceptor.exception.BusinessException;
+import com.junmo.web.interceptor.exception.ParamException;
+import com.junmo.web.interceptor.exception.SqlException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
