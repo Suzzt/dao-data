@@ -1,6 +1,6 @@
 spring:
   application:
-    name: dot-record
+    name: dao-data-web
   kafka:
     enabled: false
     bootstrap-servers: 192.168.1.12:9092
