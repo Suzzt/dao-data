@@ -28,7 +28,8 @@ public class DataReceiverServiceImpl implements DataReceiverService {
         if (warehouseType.equals(WareHouseEnum.MYSQL)) {
             //direct db
 
-        }else{
+
+        }else if (warehouseType.equals(WareHouseEnum.HIVE)){
             kafkaTemplate.send("first-test", new Gson().toJson(dotLog));
         }
         return ApiResult.buildSuccess();

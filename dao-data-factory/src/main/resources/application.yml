@@ -1,8 +1,1 @@
-spring:
-  application:
-    name: dao-data-factory
 log.home: /data/dao-data-logs/${spring.application.name}
-server:
-  port: 7772
-  servlet:
-    context-path: /${spring.application.name}
