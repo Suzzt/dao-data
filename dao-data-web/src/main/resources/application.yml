@@ -8,7 +8,7 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
   datasource:
-    url: jdbc:mysql://10.0.10.41:3306/dao-data
+    url: jdbc:mysql://192.168.1.14:3306/dao-data
     username: root
     password: root
     # 连接池类型
