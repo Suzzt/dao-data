@@ -9,10 +9,10 @@
   <context id="mybatis_table" targetRuntime="MyBatis3">
 
     <!-- 抑制生成注释，由于生成的注释都是英文版的，可以不让它生成 -->
-    <commentGenerator>
-      <property name="suppressDate" value="false"/>
-      <property name="suppressAllComments" value="true"/>
-    </commentGenerator>
+<!--    <commentGenerator>-->
+<!--      <property name="suppressDate" value="true"/>-->
+<!--      <property name="suppressAllComments" value="true"/>-->
+<!--    </commentGenerator>-->
 
     <!-- 配置数据库连接信息 -->
     <jdbcConnection driverClass="com.mysql.jdbc.Driver"
@@ -48,8 +48,6 @@
            enableCountByExample="false" enableUpdateByExample="false"
            enableDeleteByExample="false" enableSelectByExample="false"
            selectByExampleQueryId="false">
-      <!--<columnRenamingRule searchString="^D_"
-                          replaceString=""/>-->
     </table>
 
   </context>

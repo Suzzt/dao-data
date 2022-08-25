@@ -4,6 +4,8 @@ import com.google.gson.Gson;
 import com.junmo.common.enums.WareHouseEnum;
 import com.junmo.common.record.SimpleDotLog;
 import com.junmo.common.result.ApiResult;
+import com.junmo.web.entity.DotRecord;
+import com.junmo.web.mapper.DotRecordMapper;
 import com.junmo.web.service.DataReceiverService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,12 +24,17 @@ public class DataReceiverServiceImpl implements DataReceiverService {
     @Autowired
     private KafkaTemplate kafkaTemplate;
 
+    @Autowired
+    private DotRecordMapper dotRecordMapper;
+
     @Override
     public ApiResult handle(SimpleDotLog dotLog, WareHouseEnum warehouseType) {
         log.info("dotLog={}", new Gson().toJson(dotLog));
         if (warehouseType.equals(WareHouseEnum.MYSQL)) {
             //direct db
-
+            DotRecord dotRecordDO = new DotRecord();
+            //dotRecordDO.setEventType();
+            dotRecordMapper.insert(dotRecordDO);
 
         }else if (warehouseType.equals(WareHouseEnum.HIVE)){
             kafkaTemplate.send("first-test", new Gson().toJson(dotLog));

@@ -1,7 +1,9 @@
 package com.junmo.web.mapper;
 
 import com.junmo.web.entity.DotRecord;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface DotRecordMapper {
     int deleteByPrimaryKey(Long id);
 
