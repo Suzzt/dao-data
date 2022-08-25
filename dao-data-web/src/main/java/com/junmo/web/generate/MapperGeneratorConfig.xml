@@ -5,59 +5,51 @@
 
 <generatorConfiguration>
 
-  <context id="mysql_tables" targetRuntime="MyBatis3">
+  <!-- 配置table表信息内容体，targetRuntime指定采用mybatis3的版本 -->
+  <context id="mybatis_table" targetRuntime="MyBatis3">
 
-    <!-- 不需要生成注释
- <commentGenerator>
-   <property name="suppressAllComments" value="true" />
-   <property name="suppressDate" value="true" />
- </commentGenerator>
-  -->
-    <!-- 注释控制完毕 -->
-
-    <!-- 这里的type里写的是你的实现类的类全路径 -->
-    <commentGenerator type="org.mybatis.generator.api.dom.MyCommentGenerator">
+    <!-- 抑制生成注释，由于生成的注释都是英文版的，可以不让它生成 -->
+    <commentGenerator>
+      <property name="suppressDate" value="false"/>
+      <property name="suppressAllComments" value="true"/>
     </commentGenerator>
-    <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-                    connectionURL="jdbc:mysql://192.168.1.14:3306/dao-data?autoReconnect=true&amp;failOverReadOnly=false&amp;maxReconnects=10&amp;characterEncoding=UTF8"
-                    userId="root"
-                    password="JunMo_123">
-    </jdbcConnection>
 
-    <javaTypeResolver >
-      <property name="forceBigDecimals" value="false" />
-    </javaTypeResolver>
+    <!-- 配置数据库连接信息 -->
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                    connectionURL="jdbc:mysql://10.0.10.41:3306/dao-data" userId="root"
+                    password="shinemo123"/>
 
-    <javaModelGenerator targetPackage="com.junmo.web.entity" targetProject="src/main/java">
-      <property name="enableSubPackages" value="true" />
-      <property name="trimStrings" value="true" />
+    <!-- 生成model类，targetPackage指定model类的包名，targetProject指定生成的model放在哪个工程中 -->
+    <javaModelGenerator targetPackage="com.junmo.web.entity"
+                        targetProject="src/main/java">
+      <property name="enableSubPackages" value="true"/>
+      <property name="trimStrings" value="true"/>
     </javaModelGenerator>
 
-    <javaQueryGenerator targetPackage="com.junmo.web.entity" targetProject="src/main/java">
+    <!-- 生成mybatis的mapper.xml文件，targetPackage指定mapper.xml的包名，targetProject指定mapper.xml在哪个工程目录下 -->
+    <sqlMapGenerator targetPackage="mybatis-mapper"
+                     targetProject="src/main/resources">
       <property name="enableSubPackages" value="true"/>
-      <property name="trimStrings" value="true"/>
-    </javaQueryGenerator>
-
-    <javaUpdateGenerator targetPackage="com.junmo.web.entity" targetProject="src/main/java">
-      <property name="enableSubPackages" value="true"/>
-      <property name="trimStrings" value="true"/>
-      <property name="constructorBased" value="true"/>
-    </javaUpdateGenerator>
-
-    <sqlMapGenerator targetPackage="mybatis-mapper"  targetProject="src/main/resources">
-      <property name="enableSubPackages" value="true" />
     </sqlMapGenerator>
 
-    <javaClientGenerator type="XMLMAPPER" targetPackage="com.junmo.web.mapper" targetProject="src/main/java">
-      <property name="enableSubPackages" value="true" />
+    <!-- 生成mybatis的Mapper接口类文件，targetPackage指定Mapper接口类文件的包名，targetProject指定Mapper接口类在哪个工程目录下 -->
+    <javaClientGenerator targetPackage="com.junmo.web.mapper"
+                         targetProject="src/main/java"
+                         type="XMLMAPPER">
+      <property name="enableSubPackages" value="true"/>
     </javaClientGenerator>
 
-    <table schema="mybatis" tableName="dot-record" domainObjectName="DotRecord"
-           queryObjectName="DotRecordQuery"
+    <!--<table tableName="T_FEE_AGTBILL" domainObjectName="FeeAgentBill"
+           enableCountByExample="false" enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false"/>-->
+    <!-- 数据库表以及对应的java模型类名（如果是多个表的话，可以复制多份然后修改成对应的表以及需要生成的模型名） -->
+    <table tableName="dot_record" domainObjectName="DotRecord"
            enableCountByExample="false" enableUpdateByExample="false"
            enableDeleteByExample="false" enableSelectByExample="false"
            selectByExampleQueryId="false">
-      <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+      <!--<columnRenamingRule searchString="^D_"
+                          replaceString=""/>-->
     </table>
 
   </context>

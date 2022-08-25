@@ -32,8 +32,8 @@
     </parent>
 
     <modules>
-        <module>dao-data-web</module>
         <module>common</module>
+        <module>dao-data-web</module>
         <module>dao-data-server</module>
         <module>dao-calculate-core</module>
         <module>dao-data-factory</module>
