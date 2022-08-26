@@ -1,19 +1,24 @@
 package com.junmo.web.mapper;
 
 import com.junmo.web.entity.DotRecord;
+import com.junmo.web.entity.DotRecordQuery;
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DotRecordMapper {
-    int deleteByPrimaryKey(Long id);
-
-    int insert(DotRecord record);
-
     int insertSelective(DotRecord record);
 
-    DotRecord selectByPrimaryKey(Long id);
+    DotRecord getBy(DotRecordQuery query);
 
-    int updateByPrimaryKeySelective(DotRecord record);
+    List<DotRecord> selectBy(DotRecordQuery query);
 
-    int updateByPrimaryKey(DotRecord record);
+    Integer countBy(DotRecordQuery query);
+
+    Integer updateById(DotRecord record);
+
+    Integer deleteById(@Param("id") Long id);
+
+    int batchInsert(@Param("dotRecordList") List<DotRecord> list);
 }

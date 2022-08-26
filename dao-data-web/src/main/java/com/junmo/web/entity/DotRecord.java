@@ -1,45 +1,30 @@
 package com.junmo.web.entity;
 
 import java.util.Date;
+import lombok.Data;
 
+/**
+ * DotRecord
+ */
+@Data
 public class DotRecord {
+    /**
+     * 埋点标记主键唯一.绝对禁止修改
+     */
     private Long id;
 
+    /**
+     * 事件类型
+     */
     private String eventType;
 
+    /**
+     * 参数信息
+     */
     private String analysisMessage;
 
+    /**
+     * 触发时间点
+     */
     private Date triggerTime;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getEventType() {
-        return eventType;
-    }
-
-    public void setEventType(String eventType) {
-        this.eventType = eventType == null ? null : eventType.trim();
-    }
-
-    public String getAnalysisMessage() {
-        return analysisMessage;
-    }
-
-    public void setAnalysisMessage(String analysisMessage) {
-        this.analysisMessage = analysisMessage == null ? null : analysisMessage.trim();
-    }
-
-    public Date getTriggerTime() {
-        return triggerTime;
-    }
-
-    public void setTriggerTime(Date triggerTime) {
-        this.triggerTime = triggerTime;
-    }
 }

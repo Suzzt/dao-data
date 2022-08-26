@@ -5,6 +5,7 @@ import com.junmo.common.record.SimpleDotLog;
 import com.junmo.common.result.ApiResult;
 import com.junmo.web.service.DataReceiverService;
 import com.junmo.web.util.LogRecordUtils;
+import com.junmo.web.vo.DotRecordVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
@@ -29,25 +30,11 @@ public class MysqlReceiverController {
     /**
      * mysql 数据接收对象处理
      *
-     * @param dotLog
+     * @param dotRecordVO
      * @return
      */
-    @RequestMapping("dot-log")
-    public ApiResult data(@RequestBody SimpleDotLog dotLog) {
-        return dataReceiverService.handle(dotLog, WareHouseEnum.MYSQL);
-    }
-
-    /**
-     * mysql 数据接收文本处理
-     *
-     * @param dotLog    按字符顺序分割数据,请严格按这个来.
-     *                  顺序：事件/affiliateId/userId/platform/version
-     *                  示例: dot-log='index$77777777$1000100021$ios$12.0.8'
-     * @param separator 分割符 默认按'$'
-     * @return
-     */
-    @RequestMapping("dot-log-txt")
-    public ApiResult data(@RequestParam String dotLog, String separator) {
-        return dataReceiverService.handle(LogRecordUtils.conversion(dotLog, StringUtils.hasLength(separator) ? separator : "\\$"), WareHouseEnum.MYSQL);
+    @RequestMapping("dot-record")
+    public ApiResult data(DotRecordVO dotRecordVO) {
+        return dataReceiverService.handle(dotRecordVO, WareHouseEnum.MYSQL);
     }
 }
