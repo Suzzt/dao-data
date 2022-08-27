@@ -44,6 +44,15 @@ public enum WareHouseEnum {
         this.name = name;
         this.description = description;
     }
+    public static WareHouseEnum getWareHouseEnumByName(String name) {
+        WareHouseEnum[] wareHouseEnums = WareHouseEnum.values();
+        for (WareHouseEnum wareHouseEnum : wareHouseEnums) {
+            if (wareHouseEnum.name().equals(name)) {
+                return wareHouseEnum;
+            }
+        }
+        return null;
+    }
 
     @Override
     public String toString() {

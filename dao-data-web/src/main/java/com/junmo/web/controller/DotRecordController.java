@@ -20,9 +20,9 @@ import org.springframework.web.bind.annotation.RestController;
  * @description: 接收打点入mysql
  */
 @RestController
-@RequestMapping(value = "mysql")
+@RequestMapping(value = "dot-record")
 @Slf4j
-public class MysqlReceiverController {
+public class DotRecordController {
 
     @Autowired
     private DataReceiverService dataReceiverService;
@@ -33,7 +33,7 @@ public class MysqlReceiverController {
      * @param dotRecordVO
      * @return
      */
-    @RequestMapping("dot-record")
+    @RequestMapping("data")
     public ApiResult data(DotRecordVO dotRecordVO) {
         return dataReceiverService.handle(dotRecordVO, WareHouseEnum.MYSQL);
     }

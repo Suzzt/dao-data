@@ -1,26 +1,90 @@
 package com.junmo.web.merge;
 
+import com.google.common.collect.Lists;
 import com.junmo.web.entity.DotRecord;
+import com.junmo.web.mapper.DotRecordMapper;
+import com.junmo.web.model.DotRecordDTO;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
-import java.util.Queue;
-import java.util.concurrent.ConcurrentLinkedQueue;
+import javax.annotation.PostConstruct;
+import java.util.List;
 
 /**
  * @author: sucf
- * @date: 2022/8/26 16:52
- * @description: 资源管理
+ * @date: 2022/8/26 17:32
+ * @description: data resource commit manager
  */
+@Slf4j
+@Component
 public class ResourceManager {
+
+    @Autowired
+    private StorageManager storageManager;
+
+    @Autowired
+    private DotRecordMapper dotRecordMapper;
+
     /**
-     * 积累的数据埋点数据资源队列
+     * merge number
      */
-    private static final Queue<DotRecord> RESOURCE_QUEUE = new ConcurrentLinkedQueue<>();
+    @Value("#{T(java.lang.Integer).parseInt('${batch-push-number}')}")
+    private Integer limit;
 
-    public static boolean add(DotRecord dotRecord) {
-        return RESOURCE_QUEUE.offer(dotRecord);
+    /**
+     * handle data
+     */
+    @PostConstruct
+    public void execute() {
+        //启动处理器
+        for (int k = 0; k < storageManager.getNodeNumber(); k++) {
+            ResourceHandler resourceHandler = new ResourceHandler(storageManager.getResourceNodeList().get(k));
+            new Thread(resourceHandler).start();
+        }
     }
 
-    public static DotRecord get() {
-        return RESOURCE_QUEUE.poll();
+    class ResourceHandler implements Runnable {
+        private StorageManager.StorageNode storageNode;
+
+        public ResourceHandler(StorageManager.StorageNode storageNode) {
+            this.storageNode = storageNode;
+        }
+
+        @Override
+        public void run() {
+            while (true) {
+                List<DotRecord> list = Lists.newArrayList();
+                for (int i = 0; i < limit; i++) {
+                    DotRecordDTO dotRecordDTO = storageNode.get();
+                    if (dotRecordDTO == null) {
+                        if (i == 0) {
+                            //歇一会.停车坐爱枫林晚,霜叶红于二月花
+                            log.info("resource {} handler======no need to process data", storageNode.getNodeName());
+                            try {
+                                Thread.sleep(3000);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        break;
+                    }
+                    //mysql
+                    DotRecord dotRecordDO = new DotRecord();
+                    dotRecordDO.setTriggerTime(dotRecordDTO.getTriggerTime());
+                    dotRecordDO.setAnalysisMessage(dotRecordDTO.getAnalysisMessage());
+                    dotRecordDO.setEventType(dotRecordDTO.getEventType());
+                    list.add(dotRecordDO);
+                }
+                //责任链
+                if (list.size() != 0) {
+                    //push data
+                    dotRecordMapper.batchInsert(list);
+                    log.info("resource {} handler>>>>>>insert data size = {}", storageNode.getNodeName(), list.size());
+                }
+            }
+        }
     }
+
 }

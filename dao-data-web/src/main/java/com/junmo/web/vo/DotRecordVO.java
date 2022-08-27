@@ -1,7 +1,9 @@
 package com.junmo.web.vo;
 
 import cn.hutool.core.date.DateUtil;
+import com.junmo.common.enums.WareHouseEnum;
 import com.junmo.web.entity.DotRecord;
+import com.junmo.web.model.DotRecordDTO;
 import lombok.Data;
 
 /**
@@ -26,11 +28,25 @@ public class DotRecordVO {
      */
     private Long triggerTime;
 
+    /**
+     * 发送处理数仓类型
+     */
+    private String wareHouse;
+
     public DotRecord toDO() {
         DotRecord dotRecordDO = new DotRecord();
         dotRecordDO.setEventType(eventType);
         dotRecordDO.setAnalysisMessage(analysisMessage);
         dotRecordDO.setTriggerTime(DateUtil.date(triggerTime));
         return dotRecordDO;
+    }
+
+    public DotRecordDTO toDTO() {
+        DotRecordDTO dotRecordDTO = new DotRecordDTO();
+        dotRecordDTO.setEventType(eventType);
+        dotRecordDTO.setAnalysisMessage(analysisMessage);
+        dotRecordDTO.setTriggerTime(DateUtil.date(triggerTime));
+        dotRecordDTO.setWareHouseEnum(WareHouseEnum.getWareHouseEnumByName(wareHouse));
+        return dotRecordDTO;
     }
 }
