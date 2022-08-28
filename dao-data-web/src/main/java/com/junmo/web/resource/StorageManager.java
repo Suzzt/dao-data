@@ -1,8 +1,7 @@
-package com.junmo.web.merge;
+package com.junmo.web.resource;
 
 import cn.hutool.core.util.RandomUtil;
 import com.google.common.collect.Lists;
-import com.junmo.web.entity.DotRecord;
 import com.junmo.web.model.DotRecordDTO;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -48,14 +47,12 @@ public class StorageManager {
     /**
      * 增加存储节点
      */
-    public void addStorageNode() {
-    }
+    public void addStorageNode() {}
 
     /**
      * 删除存储节点
      */
-    public void removeStorageNode() {
-    }
+    public void removeStorageNode() {}
 
     /**
      * push data to queue

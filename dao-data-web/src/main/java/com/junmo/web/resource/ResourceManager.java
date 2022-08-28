@@ -1,4 +1,4 @@
-package com.junmo.web.merge;
+package com.junmo.web.resource;
 
 import com.google.common.collect.Lists;
 import com.junmo.web.entity.DotRecord;
@@ -28,7 +28,7 @@ public class ResourceManager {
     private DotRecordMapper dotRecordMapper;
 
     /**
-     * merge number
+     * process number
      */
     @Value("#{T(java.lang.Integer).parseInt('${batch-push-number}')}")
     private Integer limit;

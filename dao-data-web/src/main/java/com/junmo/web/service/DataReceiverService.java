@@ -2,7 +2,6 @@ package com.junmo.web.service;
 
 
 import com.junmo.common.enums.WareHouseEnum;
-import com.junmo.common.record.SimpleDotLog;
 import com.junmo.common.result.ApiResult;
 import com.junmo.web.vo.DotRecordVO;
 

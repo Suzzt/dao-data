@@ -1,17 +1,12 @@
 package com.junmo.web.controller;
 
 import com.junmo.common.enums.WareHouseEnum;
-import com.junmo.common.record.SimpleDotLog;
 import com.junmo.common.result.ApiResult;
 import com.junmo.web.service.DataReceiverService;
-import com.junmo.web.util.LogRecordUtils;
 import com.junmo.web.vo.DotRecordVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
