@@ -5,6 +5,7 @@ import lombok.Data;
 
 /**
  * DotRecord
+ * @author sucf
  */
 @Data
 public class DotRecord {

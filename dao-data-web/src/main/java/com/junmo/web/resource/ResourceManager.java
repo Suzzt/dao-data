@@ -54,6 +54,7 @@ public class ResourceManager {
 
         @Override
         public void run() {
+            ProcessorManager processorManager = new ProcessorManager();
             while (true) {
                 List<DotRecord> list = Lists.newArrayList();
                 for (int i = 0; i < limit; i++) {

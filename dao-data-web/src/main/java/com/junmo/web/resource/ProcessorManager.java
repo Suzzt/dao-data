@@ -1,5 +1,7 @@
 package com.junmo.web.resource;
 
+import com.junmo.web.model.DotRecordDTO;
+
 /**
  * @author: sucf
  * @date: 2022/8/28 22:40
@@ -7,5 +9,11 @@ package com.junmo.web.resource;
  */
 public class ProcessorManager {
 
+    /**
+     * distributed to data processor
+     * @param dotRecordDTO
+     */
+    public void distribute(DotRecordDTO dotRecordDTO){
 
+    }
 }
