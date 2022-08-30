@@ -34,14 +34,20 @@ public class ResourceManager {
     private Integer limit;
 
     /**
-     * handle data
+     * initialize processor
      */
     @PostConstruct
-    public void execute() {
+    public void initHandler() {
         //启动处理器
         for (int k = 0; k < storageManager.getNodeNumber(); k++) {
             ResourceHandler resourceHandler = new ResourceHandler(storageManager.getResourceNodeList().get(k));
+            //错开时间启动
             new Thread(resourceHandler).start();
+            try {
+                Thread.sleep(150);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 

@@ -24,7 +24,7 @@ public class StorageManager {
     @Value("#{T(java.lang.Integer).parseInt('${data-storage-node}')}")
     private Integer nodeNumber;
     /**
-     * 资源存储节点
+     * resource data storage node
      */
     private List<StorageNode> resourceNodeList;
 
@@ -36,8 +36,11 @@ public class StorageManager {
         return resourceNodeList;
     }
 
+    /**
+     * initialize resource storage node
+     */
     @PostConstruct
-    private void initNodeHandler() {
+    private void initStorageNode() {
         resourceNodeList = Lists.newArrayList();
         for (int i = 0; i < nodeNumber; i++) {
             resourceNodeList.add(new StorageNode("node-" + i));
@@ -45,14 +48,16 @@ public class StorageManager {
     }
 
     /**
-     * 增加存储节点
+     * add node
      */
-    public void addStorageNode() {}
+    public void addStorageNode() {
+    }
 
     /**
-     * 删除存储节点
+     * delete node
      */
-    public void removeStorageNode() {}
+    public void removeStorageNode() {
+    }
 
     /**
      * push data to queue
@@ -68,7 +73,7 @@ public class StorageManager {
 
     class StorageNode {
         /**
-         * 节点名称
+         * node name
          */
         private String nodeName;
 
@@ -77,7 +82,7 @@ public class StorageManager {
         }
 
         /**
-         * 积累的数据埋点数据资源队列
+         * accumulated data buried point data resource queue
          */
         private final Queue<DotRecordDTO> RESOURCE_QUEUE = new ConcurrentLinkedQueue<>();
 

@@ -24,7 +24,7 @@ public class DataReceiverServiceImpl implements DataReceiverService {
 
     @Override
     public ApiResult handle(DotRecordVO dotRecordVO, WareHouseEnum warehouseType) {
-        log.info("report dot record data = {}", new Gson().toJson(dotRecordVO));
+        log.debug("report dot record data = {}", new Gson().toJson(dotRecordVO));
         storageManager.push(dotRecordVO.toDTO());
         return ApiResult.buildSuccess();
     }
