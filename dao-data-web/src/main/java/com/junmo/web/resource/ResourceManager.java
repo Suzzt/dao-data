@@ -88,7 +88,7 @@ public class ResourceManager {
                 if (list.size() != 0) {
                     //push data
                     dotRecordMapper.batchInsert(list);
-                    log.info("resource {} handler>>>>>>insert data size = {}", storageNode.getNodeName(), list.size());
+                    log.debug("resource {} handler>>>>>>insert data size = {}", storageNode.getNodeName(), list.size());
                 }
             }
         }
