@@ -7,7 +7,6 @@ import com.junmo.web.model.DotRecordDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.List;
 
 /**
  * @author: sucf
@@ -19,8 +18,6 @@ public class MysqlDataProcessor implements DataProcessor{
 
     @Autowired
     private DotRecordMapper dotRecordMapper;
-
-    private List<DotRecord> mergeResourceList = Lists.newArrayList();
 
     @Override
     public void collect(DotRecordDTO dotRecordDTO) {
@@ -34,7 +31,7 @@ public class MysqlDataProcessor implements DataProcessor{
     @Override
     public void commit(String storageNodeName) {
         dotRecordMapper.batchInsert(mergeResourceList);
-        log.info("resource {} handler>>>>>>insert data size = {}", storageNodeName, mergeResourceList.size());
+        log.info("resource {} handler >>>>>> insert data size = {}", storageNodeName, mergeResourceList.size());
         mergeResourceList.clear();
     }
 }

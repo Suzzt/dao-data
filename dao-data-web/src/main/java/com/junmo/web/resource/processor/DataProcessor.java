@@ -1,6 +1,10 @@
 package com.junmo.web.resource.processor;
 
+import com.google.common.collect.Lists;
+import com.junmo.web.entity.DotRecord;
 import com.junmo.web.model.DotRecordDTO;
+
+import java.util.List;
 
 /**
  * @author: sucf
@@ -8,6 +12,8 @@ import com.junmo.web.model.DotRecordDTO;
  * @description: 数据处理器接口
  */
 public interface DataProcessor {
+
+    List<DotRecord> mergeResourceList = Lists.newArrayList();
 
     /**
      * collect data
