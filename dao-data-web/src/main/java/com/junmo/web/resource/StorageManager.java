@@ -5,7 +5,6 @@ import com.google.common.collect.Lists;
 import com.junmo.web.model.DotRecordDTO;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-
 import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.Queue;
@@ -45,18 +44,6 @@ public class StorageManager {
         for (int i = 0; i < nodeNumber; i++) {
             resourceNodeList.add(new StorageNode("node-" + i));
         }
-    }
-
-    /**
-     * add node
-     */
-    public void addStorageNode() {
-    }
-
-    /**
-     * delete node
-     */
-    public void removeStorageNode() {
     }
 
     /**

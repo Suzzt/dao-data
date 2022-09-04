@@ -94,4 +94,15 @@ public class ResourceManager {
         }
     }
 
+    /**
+     * add node
+     */
+    public void addStorageNode() {
+    }
+
+    /**
+     * delete node
+     */
+    public void removeStorageNode() {
+    }
 }
