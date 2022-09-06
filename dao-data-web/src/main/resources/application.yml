@@ -49,5 +49,5 @@ server:
   servlet:
     context-path: /${spring.application.name}
 
-batch-push-number: 1000
-data-storage-node: 5
+#batch-push-number: 1000
+#data-storage-node: 5

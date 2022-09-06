@@ -47,14 +47,22 @@ public class ResourceHandler implements Runnable {
                 dotRecordDO.setAnalysisMessage(dotRecordDTO.getAnalysisMessage());
                 dotRecordDO.setEventType(dotRecordDTO.getEventType());
                 list.add(dotRecordDO);
+                //text
+
+                //hive
+
             }
-            //责任链
+            //统一提交
+            //mysql
             if (list.size() != 0) {
                 //push data
                 DotRecordMapper dotRecordMapper = DaoSpringUtils.getBean("dotRecordMapper");
                 dotRecordMapper.batchInsert(list);
                 log.info("resource {} handler>>>>>>insert data size = {}", storageNode.nodeName, list.size());
             }
+            //hive
+
+            //text
         }
     }
 }

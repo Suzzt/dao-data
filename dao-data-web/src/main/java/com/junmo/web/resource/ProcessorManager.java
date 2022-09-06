@@ -16,4 +16,8 @@ public class ProcessorManager {
     public void distribute(DotRecordDTO dotRecordDTO){
 
     }
+
+    public void clear(){
+
+    }
 }

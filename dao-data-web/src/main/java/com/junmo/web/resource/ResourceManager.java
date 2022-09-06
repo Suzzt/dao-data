@@ -4,7 +4,6 @@ import cn.hutool.core.util.RandomUtil;
 import com.google.common.collect.Lists;
 import com.junmo.web.model.DotRecordDTO;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -45,7 +44,6 @@ public class ResourceManager {
             StorageNode storageNode = new StorageNode("node-" + k, limit);
             storageNodeList.add(storageNode);
             ResourceHandler resourceHandler = new ResourceHandler(storageNode);
-            //错开时间启动
             new Thread(resourceHandler).start();
 //            try {
 //                Thread.sleep(150);
@@ -70,12 +68,21 @@ public class ResourceManager {
     /**
      * add node
      */
-    public static void addStorageNode() {
+    public static synchronized void addNode(Integer limit) {
+        if (limit == null || limit.intValue() == 0) {
+            limit = ResourceManager.limit;
+        }
+        StorageNode storageNode = new StorageNode("node-" + (nodeNumber + 1), limit);
+        storageNodeList.add(storageNode);
+        ResourceHandler resourceHandler = new ResourceHandler(storageNode);
+        new Thread(resourceHandler).start();
+        nodeNumber++;
+        log.info("add node success");
     }
 
     /**
      * delete node
      */
-    public static void removeStorageNode() {
+    public static synchronized void removeNode() {
     }
 }
