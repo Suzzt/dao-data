@@ -97,8 +97,8 @@
         </layout>
     </appender>
 
-    <logger name="mapper" additivity="false">
-        <level value="debug"/>
+    <logger name="com.junmo.web.mapper" additivity="false">
+        <level value="info"/>
         <appender-ref ref="SQL"/>
     </logger>
 
