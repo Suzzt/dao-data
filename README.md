@@ -23,7 +23,7 @@ dao-shell --- 执行脚本
 dao-data-factory --- 数据工厂
 
 # 架构分层
-![img_3](https://user-images.githubusercontent.com/27397567/215265606-d9b2d105-32cd-48f6-82f5-5b20c81255ad.png)
+![img_5](https://user-images.githubusercontent.com/27397567/215265706-e12177a1-512c-45ef-9c58-daf6838aa666.png)
 
 # 技术架构
 ![img_4](https://user-images.githubusercontent.com/27397567/215265602-68f03cf5-5a51-4225-88b0-245547aa0279.png)
