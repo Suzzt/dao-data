@@ -23,14 +23,13 @@ dao-shell --- 执行脚本
 dao-data-factory --- 数据工厂
 
 # 架构分层
-![3.png](img_5.png)
+![img_3](https://user-images.githubusercontent.com/27397567/215265606-d9b2d105-32cd-48f6-82f5-5b20c81255ad.png)
 
 # 技术架构
-![2.png](img_4.png)
+![img_4](https://user-images.githubusercontent.com/27397567/215265602-68f03cf5-5a51-4225-88b0-245547aa0279.png)
 
 # 服务架构
-![1.png](img_3.png)
-
+![img_3](https://user-images.githubusercontent.com/27397567/215265585-3f39de75-ed61-47cc-a3bf-a6a928b451d4.png)
 
 # 模型构建介绍
 星型：
