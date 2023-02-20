@@ -19,9 +19,9 @@
     <commentGenerator type="org.mybatis.generator.api.dom.MyCommentGenerator">
     </commentGenerator>
     <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                    connectionURL="jdbc:mysql://10.0.10.41:3306/dao-data?autoReconnect=true&amp;failOverReadOnly=false&amp;maxReconnects=10&amp;characterEncoding=UTF8"
+                    connectionURL="jdbc:mysql://192.168.1.14:3306/dao-data?autoReconnect=true&amp;failOverReadOnly=false&amp;maxReconnects=10&amp;characterEncoding=UTF8"
                     userId="root"
-                    password="shinemo123">
+                    password="JunMo_123">
     </jdbcConnection>
 
     <javaTypeResolver >
