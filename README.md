@@ -5,7 +5,7 @@
 # 技术要求
 SpringBoot(2.4.5)、kafka(2.8)、zookeeper、redis、mysql、Hadoop、Spark、Hive、Hbase、phoenix、Elasticsearch、Flink、Flink-cdc、Canal、Kylin、clickhouse
 
-备注：上述所用版本经过本人实践适配
+备注：上述所用版本经过本人实践适配(本项目就是在集成所有大数据处理框架, 然后向上构建应用能力)
 
 # 代码架构分层介绍
 common --- 公共层
@@ -16,7 +16,7 @@ data-data-analysis --- 分析层：调度分析
 
 dao-data-calculate --- 计算层：核心计算
 
-dao-task-butler --- 任务管家：协调任务
+dao-data-tb --- 任务管家：协调任务
 
 dao-data-shell --- 执行脚本
 

@@ -37,7 +37,7 @@
         <module>dao-data-server</module>
         <module>dao-data-calculate</module>
         <module>dao-data-factory</module>
-        <module>dao-task-butler</module>
+        <module>dao-data-tb</module>
     </modules>
     <dependencies>
         <dependency>
