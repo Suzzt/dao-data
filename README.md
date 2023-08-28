@@ -18,7 +18,7 @@ dao-data-calculate --- 计算层：核心计算
 
 dao-data-tb --- 任务管家：协调任务
 
-dao-data-shell --- 执行脚本
+dao-data-deploy --- 执行脚本
 
 dao-data-factory --- 数据工厂
 
