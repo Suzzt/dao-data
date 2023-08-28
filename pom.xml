@@ -35,7 +35,7 @@
         <module>common</module>
         <module>dao-data-web</module>
         <module>dao-data-server</module>
-        <module>dao-calculate-core</module>
+        <module>dao-data-calculate</module>
         <module>dao-data-factory</module>
         <module>dao-task-butler</module>
     </modules>
@@ -61,5 +61,19 @@
             <version>${gson-version}</version>
         </dependency>
     </dependencies>
+
+    <!-- 解决 spring-boot jar 包下载问题 -->
+    <repositories>
+        <repository>
+            <id>spring-snapshots</id>
+            <url>https://repo.spring.io/libs-snapshot</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-snapshots</id>
+            <url>https://repo.spring.io/libs-snapshot</url>
+        </pluginRepository>
+    </pluginRepositories>
 
 </project>
